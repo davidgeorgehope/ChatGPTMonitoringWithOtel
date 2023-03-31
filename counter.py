@@ -3,6 +3,7 @@ from flask import Flask
 import completion_counter  # Import the module
 from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
 import urllib
+import os
 
 from opentelemetry import trace
 from opentelemetry.sdk.resources import SERVICE_NAME, Resource
@@ -17,8 +18,8 @@ resource = Resource(attributes={
 })
 
 provider = TracerProvider(resource=resource)
-processor = BatchSpanProcessor(OTLPSpanExporter(endpoint="https://<oltp_end_point>",
-        headers="Authorization=Bearer%20<secret_key_here>"))
+processor = BatchSpanProcessor(OTLPSpanExporter(endpoint=os.getenv('OTEL_EXPORTER_OTLP_ENDPOINT'),
+        headers="Authorization=Bearer%20"+os.getenv('OTEL_EXPORTER_OTLP_AUTH_HEADER')))
 
 provider.add_span_processor(processor)
 trace.set_tracer_provider(provider)
@@ -31,7 +32,7 @@ RequestsInstrumentor().instrument()
 app = Flask(__name__)
 
 # Set OpenAI API key
-openai.api_key = "open_api_key_here"
+openai.api_key = os.getenv('OPEN_AI_KEY')
 
 @app.route("/completion")
 @tracer.start_as_current_span("do_work")
