@@ -23,7 +23,7 @@ OpenTelemetry is a powerful and widely adopted observability tool that can be us
  - pip3 install openai
  - pip3 install flask
 
-4. Replace the environment variables in the code snippet with your own values.
+4. Replace the environment variables below with your own values.
 
 - export OPEN_AI_KEY=sk-abcdefgh5ijk2l173mnop3qrstuvwxyzab2cde47fP2g9jij
 - export OTEL_EXPORTER_OTLP_AUTH_HEADER=abc9ldeofghij3klmn
