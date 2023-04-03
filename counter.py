@@ -1,6 +1,6 @@
 import openai
 from flask import Flask
-import completion_counter  # Import the module
+import monitor  # Import the module
 from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
 import urllib
 import os
