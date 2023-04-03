@@ -16,11 +16,17 @@ OpenTelemetry is a powerful and widely adopted observability tool that can be us
 2. Install the required Python libraries.
 
 pip3 install opentelemetry-api
+
 pip3 install opentelemetry-sdk
+
 pip3 install opentelemetry-exporter-otlp
+
 pip3 install opentelemetry-instrumentation
+
 pip3 install opentelemetry-instrumentation-requests
+
 pip3 install openai
+
 pip3 install flask
 
 4. Replace the environment variables in the code snippet with your own values.
