@@ -33,7 +33,7 @@ OpenTelemetry is a powerful and widely adopted observability tool that can be us
 
 ## Example Application
 
-The example application demonstrates how to use OpenTelemetry to instrument a Flask application that makes ChatGPT API calls. The magic happens inside the `completion_counter` code that you can use freely to instrument your OpenAI code.
+The example application demonstrates how to use OpenTelemetry to instrument a Flask application that makes ChatGPT API calls. The magic happens inside the `monitor` code that you can use freely to instrument your OpenAI code.
 
 ## Monkey Patching
 
